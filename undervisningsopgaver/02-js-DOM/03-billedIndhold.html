@@ -8,18 +8,18 @@
 	<link rel="stylesheet" href="">
 	<style>
 		.firkant {
-			height: 100px;
-			width: 100px;
-			line-height: 100px;
+			height: 150px;
+			width: 150px;
+			line-height: 230px;
 			text-align: center;
 			background: green;
 
 		}
 
 		.cirkel {
-			height: 100px;
-			width: 100px;
-			line-height: 100px;
+			height: 150px;
+			width: 150px;
+			line-height: 230px;
 			border-radius: 50%;
 			text-align: center;
 			background: red;
@@ -42,7 +42,13 @@
 		let firkantURL = `http://mabe-kea.dk/E19/pics/frog.png`;
 		let cirkelURL = `http://mabe-kea.dk/E19/pics/pig.png`;
 
-		document.querySelector(".firkant").innerHTML = `<img src = ${firkantURL} alt= >`;
-		document.querySelector(".cirkel").innerHTML = `<img src = ${cirkelURL} alt= >`;
+
+		document.addEventListener("DOMContentLoaded", start);
+
+		function start() {
+			console.log("start");
+			document.querySelector(".firkant").innerHTML = `<img src = ${firkantURL} alt= >`;
+			document.querySelector(".cirkel").innerHTML = `<img src = ${cirkelURL} alt= >`;
+		}
 	</script>
 </body></html>
