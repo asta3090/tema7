@@ -9,7 +9,7 @@
 
 	<style>
 		h1 {
-			color: ghostwhite;
+			color: black;
 			font-size: 3rem;
 			margin: 0 auto;
 			text-align: center;
@@ -20,17 +20,46 @@
 			margin-bottom: 20px;
 		}
 
+
+
+
+		.oprindelse {
+
+			color: black;
+		}
+
+
+		.kort {
+
+			color: black;
+		}
+
+
+		.lang {
+
+
+			color: black;
+		}
+
+
+		.pris {
+
+			color: black;
+		}
+
+
 		h2 {
-			color: ghostwhite;
+			color: black;
 			text-align: center;
+			font-size: 1rem;
 		}
 
 		html {
-			background-color: rgba(137, 137, 137, 0.74);
+			background-color: white;
 		}
 
 		a {
-			color: blue;
+			color: black;
 			font-size: 1.3rem;
 			text-decoration: none;
 			cursor: pointer;
@@ -40,10 +69,13 @@
 			width: 100%;
 		}
 
-		.data-container {
+
+
+
+		#menu-container {
 			display: grid;
-			grid-gap: 10px;
-			/*grid-template-columns: repeat(3, 1fr);*/
+			grid-gap: 15px;
+
 		}
 
 		article {
@@ -54,11 +86,12 @@
 		}
 
 		article:nth-child(even) {
-			background: #74ddac;
+			background-color: antiquewhite;
+			;
 		}
 
 		article:nth-child(odd) {
-			background: rgb(252, 149, 177);
+			background-color: floralwhite;
 		}
 
 		nav {
@@ -67,7 +100,7 @@
 		}
 
 		.valgt {
-			background-color: red;
+			background-color: blanchedalmond;
 		}
 
 		#popup {
@@ -75,12 +108,21 @@
 			top: 0;
 			width: 100vw;
 			height: 100vh;
-			background: rgba(0, 0, 0, .7);
+			background: none;
 			display: none;
+			overflow: scroll;
+			background-color: rgba(244, 209, 168, 0.56);
 		}
 
+		.p {
+
+			color: black;
+
+		}
+
+
 		.indhold {
-			width: 70vw;
+			width: 50vw;
 			min-height: 50vh;
 			background: #fff;
 			margin: 4rem auto;
@@ -94,13 +136,13 @@
 		}
 
 		@media screen and (min-width:600px) {
-			.data-container {
+			#menu-container {
 				grid-template-columns: repeat(2, 1fr);
 			}
 		}
 
 		@media screen and (min-width:1000px) {
-			.data-container {
+			#menu-container {
 				grid-template-columns: repeat(4, 1fr);
 			}
 		}
@@ -133,8 +175,10 @@
 		<section class="indhold">
 			<article class="enkelteRetter">
 				<h2></h2>
+				<p class="pris">Pris: </p>
 				<img class="billede" src="" alt="">
 				<p class="lang"></p>
+				<p class="oprindelse"></p>
 			</article>
 		</section>
 
@@ -189,9 +233,9 @@
 					klon.querySelector(".billede").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
 					/*/SKAL MÅSKE BRUGES IGEN klon.querySelector(".billede").alt = "billede af"
 					ret.gsx$navn.$t;/*/
-					klon.querySelector(".pris").textContent = ret.gsx$pris.$t;
+					klon.querySelector(".pris").textContent += ret.gsx$pris.$t;
 					klon.querySelector(".kort").textContent = ret.gsx$kort.$t;
-					klon.querySelector(".oprindelse").textContent = ret.gsx$oprindelse.$t;
+					klon.querySelector(".oprindelse").textContent += ret.gsx$oprindelse.$t;
 					container.appendChild(klon);
 					console.log(klon)
 					container.lastElementChild.addEventListener("click", () => {
@@ -211,11 +255,9 @@
 			document.querySelector("#popup").style.display = "block";
 			document.querySelector("#popup .luk").addEventListener("click", lukSingleRet);
 			document.querySelector(".enkelteRetter h2").textContent = ret.gsx$navn.$t;
-			document.querySelector(".enkelteRetter .billede").src = "imgs/medium/" + ret.gsx$billede.$t + "-md.jpg";
-			document.querySelector(".enkelteRetter .billede").alt = ret.gsx$billede.$t;
-			document.querySelector(".enkelteRetter .pris").alt = ret.gsx$pris.$t;
-			document.querySelector(".enkelteRetter .lang").alt = ret.gsx$lang.$t;
-			document.querySelector(".enkelteRetter .oprindelse").alt = ret.gsx$oprindelse.$t;
+			document.querySelector(".enkelteRetter .billede").src = "imgs/large/" + ret.gsx$billede.$t + ".jpg";
+			document.querySelector(".enkelteRetter .pris").textContent = ret.gsx$pris.$t;
+			document.querySelector(".enkelteRetter .lang").textContent = ret.gsx$lang.$t;
 		}
 
 		function lukSingleRet() {
