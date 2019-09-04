@@ -121,8 +121,11 @@
 
 	.luk {
 		position: fixed;
-		right: 0;
-		font-size: 2rem;
+		left: 2;
+		font-size: 1rem;
+		padding: 10px;
+		color: black;
+		background-color: skyblue;
 	}
 
 	@media screen and (min-width:600px) {
@@ -140,9 +143,11 @@
 	#single {
 		position: fixed;
 		top: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: pink;
+	}
+
+	.billede {
+		width: 50%;
+
 	}
 
 	img {
@@ -156,28 +161,19 @@
 	<h2></h2>
 	<main id="single">
 		<button class="luk">Tilbage</button>
-		<nav>
-		</nav>
+		<section class="retter">
+			<article id="ret" data-ret data-id=""></article>
+			<article>
+				<h2 class="navn"></h2>
+				<img class="billede" src="" alt="">
+				<p class="pris">Pris: </p>
+				<p class="kort"></p>
+				<p class="oprindelse"> </p>
+				<p class="lang"></p>
+
+			</article>
+		</section>
 	</main>
-	<section id="menu-container"></section>
-
-	<section class="retter">
-		<article id="ret" data-ret data-id=""></article>
-	</section>
-
-
-	<template>
-
-		<article>
-			<h2 class="navn"></h2>
-			<img class="billede" src="" alt="">
-			<p class="pris">Pris: </p>
-			<p class="kort"></p>
-			<p class="oprindelse">Oprindelse: </p>
-
-		</article>
-	</template>
-
 
 	<script>
 		let urlParams = new URLSearchParams(window.location.search);
@@ -189,16 +185,16 @@
 			let jsonData = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
 			retter = await jsonData.json();
 
-			visRet();
+			visRetter();
 		}
 
 		function visRetter() {
 			retter.feed.entry.forEach(ret => {
 				if (ret.gsx$id.$t == id) {
-					document.querySelector(".enkelteRetter h2").textContent = ret.gsx$navn.$t;
-					document.querySelector(".enkelteRetter .billede").src = "imgs/large/" + ret.gsx$billede.$t + ".jpg";
-					document.querySelector(".enkelteRetter .pris").textContent = ret.gsx$pris.$t;
-					document.querySelector(".enkelteRetter .lang").textContent = ret.gsx$lang.$t;
+					document.querySelector(".retter h2").textContent = ret.gsx$navn.$t;
+					document.querySelector(".retter .billede").src = `imgs/large/${ret.gsx$billede.$t}.jpg`;
+					document.querySelector(".retter .pris").textContent += ret.gsx$pris.$t;
+					document.querySelector(".retter .lang").textContent = ret.gsx$lang.$t;
 				}
 			})
 		}
