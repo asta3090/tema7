@@ -5,8 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Bistro Babushka popup</title>
-	<link rel="stylesheet" href="">
-
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Tangerine&display=swap" rel="stylesheet">
 	<style>
 		h1 {
 			color: black;
@@ -18,25 +19,27 @@
 			width: 400px;
 			height: 50px;
 			margin-bottom: 20px;
+			font-family: 'Dancing Script', cursive;
 		}
 
 
 
 
 		.oprindelse {
-
+			font-family: 'News Cycle', sans-serif;
 			color: black;
+
 		}
 
 
 		.kort {
-
+			font-family: 'News Cycle', sans-serif;
 			color: black;
 		}
 
 
 		.lang {
-
+			font-family: 'News Cycle', sans-serif;
 
 			color: black;
 		}
@@ -45,18 +48,19 @@
 		.pris {
 
 			color: black;
+			font-family: 'News Cycle', sans-serif;
 		}
 
 
 		h2 {
 			color: black;
 			text-align: center;
-			font-size: 1rem;
+			font-size: 2rem;
+
+			font-family: 'Tangerine', cursive;
 		}
 
-		html {
-			background-color: white;
-		}
+
 
 		a {
 			color: black;
@@ -86,17 +90,18 @@
 		}
 
 		article:nth-child(even) {
-			background-color: antiquewhite;
+			background-color: rgba(239, 210, 171, 0.94);
 			;
 		}
 
 		article:nth-child(odd) {
-			background-color: floralwhite;
+			background-color: rgba(199, 170, 110, 0.87);
 		}
 
 		nav {
 			margin: 0 auto;
 			text-align: center;
+			border-radius: 50%;
 		}
 
 		.valgt {
@@ -114,9 +119,12 @@
 			background-color: rgba(244, 209, 168, 0.56);
 		}
 
+
+
 		.p {
 
 			color: black;
+			font-family: 'Tangerine', cursive;
 
 		}
 
@@ -127,13 +135,25 @@
 			background: #fff;
 			margin: 4rem auto;
 			padding: 10px;
+
 		}
 
-		.luk {
-			position: fixed;
-			right: 0;
-			font-size: 2rem;
+
+		.forside {
+			background-color: rgba(252, 167, 13, 0.78);
 		}
+
+
+
+		.luk {
+			position: absolute;
+			right: 26vw;
+			top: 11vh;
+			font-size: 1.3rem;
+			background-color: rgba(0, 0, 0, 0.54);
+		}
+
+
 
 		@media screen and (min-width:600px) {
 			#menu-container {
@@ -150,48 +170,52 @@
 
 </head>
 
-<body>
-	<h1>Bistro Babushka</h1>
-	<h2></h2>
-	<nav>
-		<button class="filter valgt" data-kategori="alle">Alle</button>
-		<button class="filter" data-kategori="forretter">Foretter</button>
-		<button class="filter" data-kategori="hovedretter">Hovedretter</button>
-		<button class="filter" data-kategori="desserter">Desserter</button>
-		<button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
-		<button class="filter" data-kategori="sideorders">Sideorders</button>
-
-	</nav>
-
-	<section id="menu-container"></section>
-
-	<section class="retter">
-		<article id="ret" data-ret data-id=""></article>
-	</section>
+<body background="1a0dd8a9b7d8b1f1799285750036c209.jpg">
 
 
-	<div id="popup">
-		<button class="luk">X</button>
-		<section class="indhold">
-			<article class="enkelteRetter">
-				<h2></h2>
-				<p class="pris">Pris: </p>
-				<img class="billede" src="" alt="">
-				<p class="lang"></p>
-				<p class="oprindelse"></p>
-			</article>
+	<div class="forside">
+		<h1>Bistro Babushka</h1>
+		<h2></h2>
+		<nav>
+			<button class="filter valgt" data-kategori="alle">Alle</button>
+			<button class="filter" data-kategori="forretter">Foretter</button>
+			<button class="filter" data-kategori="hovedretter">Hovedretter</button>
+			<button class="filter" data-kategori="desserter">Desserter</button>
+			<button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+			<button class="filter" data-kategori="sideorders">Sideorders</button>
+
+		</nav>
+
+		<section id="menu-container"></section>
+
+		<section class="retter">
+			<article id="ret" data-ret data-id=""></article>
 		</section>
 
-	</div>
 
+		<div id="popup">
+			<button class="luk">X</button>
+			<section class="indhold">
+				<article class="enkelteRetter">
+					<h2></h2>
+					<p class="pris"></p>
+					<img class="billede" src="" alt="">
+					<p class="lang"></p>
+					<p class="oprindelse"></p>
+				</article>
+			</section>
+
+		</div>
+
+	</div>
 	<template>
 
 		<article>
 			<h2 class="navn"></h2>
 			<img class="billede" src="" alt="">
-			<p class="pris">Pris: </p>
+			<p class="pris"></p>
 			<p class="kort"></p>
-			<p class="oprindelse">Oprindelse</p>
+			<p class="oprindelse">Oprindelse: </p>
 
 		</article>
 	</template>
@@ -233,7 +257,7 @@
 					klon.querySelector(".billede").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
 					/*/SKAL MÅSKE BRUGES IGEN klon.querySelector(".billede").alt = "billede af"
 					ret.gsx$navn.$t;/*/
-					klon.querySelector(".pris").textContent += ret.gsx$pris.$t;
+					klon.querySelector(".pris").textContent = `Pris: ${ ret.gsx$pris.$t}`;
 					klon.querySelector(".kort").textContent = ret.gsx$kort.$t;
 					klon.querySelector(".oprindelse").textContent += ret.gsx$oprindelse.$t;
 					container.appendChild(klon);
@@ -256,7 +280,7 @@
 			document.querySelector("#popup .luk").addEventListener("click", lukSingleRet);
 			document.querySelector(".enkelteRetter h2").textContent = ret.gsx$navn.$t;
 			document.querySelector(".enkelteRetter .billede").src = "imgs/large/" + ret.gsx$billede.$t + ".jpg";
-			document.querySelector(".enkelteRetter .pris").textContent = ret.gsx$pris.$t;
+			document.querySelector(".enkelteRetter .pris").textContent = `Pris: ${ ret.gsx$pris.$t}`;
 			document.querySelector(".enkelteRetter .lang").textContent = ret.gsx$lang.$t;
 		}
 

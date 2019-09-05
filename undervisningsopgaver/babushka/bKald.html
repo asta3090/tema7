@@ -18,25 +18,27 @@
 			width: 400px;
 			height: 50px;
 			margin-bottom: 20px;
+			font-family: 'Dancing Script', cursive;
 		}
 
 
 
 
 		.oprindelse {
-
+			font-family: 'News Cycle', sans-serif;
 			color: black;
+
 		}
 
 
 		.kort {
-
+			font-family: 'News Cycle', sans-serif;
 			color: black;
 		}
 
 
 		.lang {
-
+			font-family: 'News Cycle', sans-serif;
 
 			color: black;
 		}
@@ -45,18 +47,19 @@
 		.pris {
 
 			color: black;
+			font-family: 'News Cycle', sans-serif;
 		}
 
 
 		h2 {
 			color: black;
 			text-align: center;
-			font-size: 1rem;
+			font-size: 2rem;
+
+			font-family: 'Tangerine', cursive;
 		}
 
-		html {
-			background-color: white;
-		}
+
 
 		a {
 			color: black;
@@ -118,6 +121,11 @@
 			background: #fff;
 			margin: 4rem auto;
 			padding: 10px;
+
+		}
+
+		#forside {
+			background-color: orange;
 		}
 
 		.luk {
@@ -142,25 +150,27 @@
 </head>
 
 <body>
-	<h1>Bistro Babushka</h1>
-	<h2></h2>
-	<nav>
-		<button class="filter valgt" data-kategori="alle">Alle</button>
-		<button class="filter" data-kategori="forretter">Foretter</button>
-		<button class="filter" data-kategori="hovedretter">Hovedretter</button>
-		<button class="filter" data-kategori="desserter">Desserter</button>
-		<button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
-		<button class="filter" data-kategori="sideorders">Sideorders</button>
 
-	</nav>
+	<div id="forside">
+		<h1>Bistro Babushka</h1>
+		<h2></h2>
+		<nav>
+			<button class="filter valgt" data-kategori="alle">Alle</button>
+			<button class="filter" data-kategori="forretter">Foretter</button>
+			<button class="filter" data-kategori="hovedretter">Hovedretter</button>
+			<button class="filter" data-kategori="desserter">Desserter</button>
+			<button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+			<button class="filter" data-kategori="sideorders">Sideorders</button>
 
-	<section id="menu-container"></section>
+		</nav>
 
-	<section class="retter">
-		<article id="ret" data-ret data-id=""></article>
-	</section>
+		<section id="menu-container"></section>
 
+		<section class="retter">
+			<article id="ret" data-ret data-id=""></article>
+		</section>
 
+	</div>
 	<template>
 
 		<article>
